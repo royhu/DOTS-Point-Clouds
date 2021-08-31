@@ -58,7 +58,7 @@ namespace Unity.PointClouds
 			computeShader.SetInt ("DataCount", totalData);
 			dataBuffer.SetData (renderData);
 
-            int kernel = 0;
+            int kernel = computeShader.FindKernel("BakeData");
 
 			computeShader.SetBuffer (kernel, "DataBuffer", dataBuffer);
 			computeShader.SetTexture (kernel, "DataMap", tempRenderTexture);

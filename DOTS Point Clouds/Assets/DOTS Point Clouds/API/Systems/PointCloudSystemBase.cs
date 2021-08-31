@@ -39,14 +39,15 @@ namespace Unity.PointClouds
 			}.WriteToRenderTexture ();
 
 			// destroy the event entities that were created this frame
-			NativeArray<Entity> eventEntities = eventQuery.ToEntityArray (Allocator.TempJob);
+			// NativeArray<Entity> eventEntities = eventQuery.ToEntityArray (Allocator.TempJob);
 
-			for (int i = 0; i < eventEntities.Length; i++)
-			{
-				EntityManager.DestroyEntity (eventEntities[i]);
-			}
+			// for (int i = 0; i < eventEntities.Length; i++)
+			// {
+			// 	EntityManager.DestroyEntity (eventEntities[i]);
+			// }
 
-			eventEntities.Dispose ();
+			// eventEntities.Dispose ();
+			EntityManager.DestroyEntity(eventQuery);
 		}
 	}
 }
